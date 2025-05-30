@@ -14,5 +14,5 @@ async def check_subscription(user_id: int) -> bool:
         return False
 
 async def check_comment(user_id: int) -> bool:
-    # Упрощённая заглушка — Telegram API не позволяет проверять комментарии напрямую
-    return True  # или False, если хочешь жёсткую валидацию
+    # Заглушка: Telegram API не позволяет получить все комментарии к посту
+    return True
