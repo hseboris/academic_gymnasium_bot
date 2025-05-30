@@ -14,7 +14,7 @@ ADMIN_IDS = set(map(int, os.getenv("ADMIN_IDS", "").split(",")))
 async def start_handler(msg: types.Message):
     tg_check = await check_subscription(msg.from_user.id)
     comment_check = await check_comment(msg.from_user.id)
-    vk_check = await check_vk_subscription(msg.from_user.username)
+    vk_check = check_vk_subscription(msg.from_user.username)
 
     if tg_check and comment_check and vk_check:
         if not is_participant(msg.from_user.id):
@@ -33,7 +33,7 @@ async def start_handler(msg: types.Message):
 @router.message(lambda msg: msg.text.strip() == "!export")
 async def export_handler(msg: types.Message):
     if msg.from_user.id not in ADMIN_IDS:
-        return  # молча игнорируем
+        return
     if os.path.exists(PARTICIPANTS_FILE):
         await msg.answer_document(types.FSInputFile(PARTICIPANTS_FILE))
     else:
