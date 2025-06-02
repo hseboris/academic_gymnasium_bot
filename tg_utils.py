@@ -1,5 +1,7 @@
 from aiogram import Bot
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 CHANNEL_ID = os.getenv("TELEGRAM_NUMERIC_ID")
 POST_ID = int(os.getenv("TELEGRAM_POST_ID"))

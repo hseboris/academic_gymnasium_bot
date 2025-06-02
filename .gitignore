@@ -1,0 +1,6 @@
+__pycache__/
+.idea*
+.idea/vcs.xml
+.env
+participants.csv
+vk_links.json
